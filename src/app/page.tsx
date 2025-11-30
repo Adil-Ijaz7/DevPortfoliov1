@@ -2,6 +2,7 @@
 
 import { personalData } from "./data";
 import { motion } from "framer-motion";
+import { useState } from "react";
 import { Github, Linkedin, Mail, Instagram, ArrowRight, FileText, Folder, ExternalLink, Brain, Code2, Server } from "lucide-react";
 import SkillsLogos from "@/components/SkillsLogos";
 import Image from "next/image";
@@ -56,7 +57,7 @@ export default function Home() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent)] to-blue-500">LAKHAIR</span>
             </h1>
             <p className="text-gray-400 text-lg mb-8 max-w-lg leading-relaxed">
-              Full-Stack Developer & AI Specialist crafting intelligent systems. 
+              Full-Stack Developer & Aspiring AI Engineer crafting intelligent systems. 
               <span className="block mt-2 text-white/60 italic">"Failure is the condiment that gives success."</span>
             </p>
             
@@ -188,32 +189,7 @@ export default function Home() {
           
           <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12">
             {personalData.experience.map((exp, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative pl-8 md:pl-12"
-              >
-                {/* Timeline Dot */}
-                <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]" />
-                
-                <div className="glass-card p-8 rounded-2xl hover:border-[var(--accent)]/30 transition-colors">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                    <div>
-                      <h3 className="text-xl font-bold text-white">{exp.role}</h3>
-                      <p className="text-[var(--accent)] font-medium">{exp.company}</p>
-                    </div>
-                    <span className="text-sm font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full w-fit">
-                      {exp.period}
-                    </span>
-                  </div>
-                  <p className="text-gray-400 leading-relaxed text-sm md:text-base">
-                    {exp.description}
-                  </p>
-                </div>
-              </motion.div>
+              <ExperienceCard key={i} exp={exp} index={i} />
             ))}
           </div>
         </div>
@@ -410,5 +386,49 @@ function HeroCard({ title, desc, icon }: { title: string; desc: string; icon: Re
         {desc}
       </p>
     </div>
+  );
+}
+
+function ExperienceCard({ exp, index }: { exp: any, index: number }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  
+  return (
+    <motion.div 
+      initial={{ opacity: 0, x: -20 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="relative pl-8 md:pl-12"
+    >
+      {/* Timeline Dot */}
+      <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]" />
+      
+      <div className="glass-card p-8 rounded-2xl hover:border-[var(--accent)]/30 transition-colors">
+        <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+          <div>
+            <h3 className="text-xl font-bold text-white">{exp.role}</h3>
+            <p className="text-[var(--accent)] font-medium">{exp.company}</p>
+          </div>
+          <span className="text-sm font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full w-fit">
+            {exp.period}
+          </span>
+        </div>
+        
+        <ul className="list-disc list-inside text-gray-400 leading-relaxed text-sm md:text-base space-y-2">
+            {(isExpanded ? exp.description : exp.description.slice(0, 2)).map((item: string, i: number) => (
+                <li key={i}>{item}</li>
+            ))}
+        </ul>
+        
+        {exp.description.length > 2 && (
+            <button 
+                onClick={() => setIsExpanded(!isExpanded)}
+                className="mt-4 text-sm text-[var(--accent)] hover:underline focus:outline-none"
+            >
+                {isExpanded ? "Show Less" : "Read More"}
+            </button>
+        )}
+      </div>
+    </motion.div>
   );
 }

@@ -41,23 +41,66 @@ export const personalData = {
       role: "Full-stack Developer",
       company: "Fiverr (Freelance)",
       period: "Jul 2025 – Present",
-      description:
-        "Built and maintained full‑stack web applications using HTML, CSS, JavaScript, React, Node.js, PHP, and MySQL. Designed and developed both front‑end interfaces and back‑end systems, ensuring seamless integration and responsiveness. Customized WordPress themes and plugins to deliver client‑specific solutions. Utilized frameworks like Express.js, Bootstrap, and Flutter to enhance UI/UX and performance. Deployed websites and applications on hosting platforms with domain, SSL, and database configuration. Communicated directly with clients to gather requirements, propose solutions, and deliver high‑quality projects on time. Maintained code quality through version control (Git), testing, and performance optimization."
+      description: [
+        "Built and maintained full-stack web applications using HTML, CSS, JavaScript, React, Node.js, PHP, and MySQL.",
+        "Designed and developed both front-end interfaces and back-end systems, ensuring seamless integration and responsiveness.",
+        "Customized WordPress themes and plugins to deliver client-specific solutions.",
+        "Utilized frameworks like Express.js, Bootstrap, and Flutter to enhance UI/UX and performance.",
+        "Deployed websites and applications on hosting platforms with domain, SSL, and database configuration.",
+        "Communicated directly with clients to gather requirements, propose solutions, and deliver high-quality projects on time.",
+        "Maintained code quality through version control (Git), testing, and performance optimization."
+      ]
     },
     {
       role: "Frontend Developer",
       company: "Freelance",
       period: "Sep 2019 – Jul 2025",
-      description:
-        "Developed responsive websites and web applications with stunning user interfaces using HTML, CSS, JavaScript, WordPress, React, Flutter, and Dart. Collaborated with cross‑functional teams to ensure seamless integration of design and functionality. Implemented innovative solutions to enhance user experience and optimize performance. Successfully delivered projects on time and within budget, exceeding client expectations."
+      description: [
+        "Developed responsive websites and web applications with stunning user interfaces using HTML, CSS, JavaScript, WordPress, React, Flutter, and Dart.",
+        "Collaborated with cross-functional teams to ensure seamless integration of design and functionality.",
+        "Implemented innovative solutions to enhance user experience and optimize performance.",
+        "Successfully delivered projects on time and within budget, exceeding client expectations."
+      ]
+    },
+    {
+      role: "Instructor",
+      company: "Win Academy Dadu",
+      period: "Jul 2025 – Present",
+      description: [
+        "Instructing students in Java, C++, Python, Web Development, and WordPress with a focus on practical, hands-on learning.",
+        "Designed and implemented structured course modules aligned with industry standards.",
+        "Guided students through real-world coding projects, portfolio building, and deployment practices.",
+        "Assisted learners in understanding complex programming concepts through simplified explanations and interactive sessions.",
+        "Provided mentorship for academic and career development in software and web technologies."
+      ]
+    },
+    {
+      role: "Natural Language Processing Intern",
+      company: "Elevvo Pathways",
+      period: "Aug 2025 – Sep 2025",
+      description: [
+        "Collaborated on Natural Language Processing (NLP) projects.",
+        "Applied programming expertise to solve complex language-based challenges."
+      ]
+    },
+    {
+      role: "KPO Executive",
+      company: "Unilever",
+      period: "May 2022 – Nov 2023",
+      description: [
+        "Managed stock and inventory through the system, maintained records, and handled invoices and sales for Shahbaz Traders Unilever Distribution Dadu District, Sindh, Pakistan.",
+        "Utilized Accenture NewsPage 8.0 distributor management system to streamline operations and improve efficiency.",
+        "Implemented inventory tracking procedures that improved stock accuracy by 20%, ensuring timely replenishment and reducing stockouts.",
+        "Coordinated with the sales team to analyze market trends and consumer preferences, contributing to tailored marketing strategies that increased product visibility and sales."
+      ]
     }
   ],
   education: [
     {
-      degree: "Bachelor of Science in Computer Science",
+      degree: "Bachelor's degree, Computer Science",
       institution: "Sukkur IBA University",
-      period: "2024 – 2028 (Expected)",
-      description: "Coursework and focus areas include Artificial Intelligence, Data Science, and Software Engineering."
+      period: "Aug 2024 – May 2028",
+      description: "Grade: 3.62/4.0 GPA. Activities: Chess, Badminton, Football, Collaborating Programming. As a driven and curious undergraduate, I am pursuing a rigorous BS in Computer Science from a HEC-recognized and NCEAC 'W' category accredited institution. I am actively building a strong, hands-on foundation in core computing principles and development. As a dedicated problem-solver, I am committed to mastering these concepts to contribute to innovative and impactful technology projects."
     }
   ],
   projects: [
