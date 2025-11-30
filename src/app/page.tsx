@@ -195,6 +195,44 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Education Section */}
+      <section id="education" className="section">
+        <div className="container max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Education</h2>
+          
+          <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12">
+            {personalData.education.map((edu, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="relative pl-8 md:pl-12"
+              >
+                {/* Timeline Dot */}
+                <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-[var(--accent)] shadow-[0_0_10px_var(--accent)]" />
+                
+                <div className="glass-card p-8 rounded-2xl hover:border-[var(--accent)]/30 transition-colors">
+                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
+                    <div>
+                      <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
+                      <p className="text-[var(--accent)] font-medium">{edu.institution}</p>
+                    </div>
+                    <span className="text-sm font-mono text-gray-500 bg-white/5 px-3 py-1 rounded-full w-fit">
+                      {edu.period}
+                    </span>
+                  </div>
+                  <p className="text-gray-400 leading-relaxed text-sm md:text-base">
+                    {edu.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section id="projects" className="section">
         <div className="container">
