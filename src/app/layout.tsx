@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adil Ali Lkhair | AI Researcher & Engineer",
-  description: "Portfolio of Adil Ali Lkhair, an Aspiring AI Researcher and Engineer.",
+  title: "Adil Ali Lakhair | AI Researcher & Engineer",
+  description: "Portfolio of Adil Ali Lakhair, an Aspiring AI Researcher and Engineer.",
 };
 
 export default function RootLayout({
