@@ -105,7 +105,7 @@ export default function Home() {
                     <span className="text-green-400">➜</span> <span className="text-blue-400">~</span> <span className="text-gray-400">whoami</span>
                   </div>
                   <div className="text-gray-300">
-                    Full-Stack Developer & AI Enthusiast based in Pakistan.
+                    Full-Stack Developer & Aspiring AI Engineer based in Pakistan.
                   </div>
                   
                   <div>
@@ -113,8 +113,8 @@ export default function Home() {
                   </div>
                   <div className="text-gray-300">
                     <span className="text-yellow-400">{"{"}</span><br/>
-                    &nbsp;&nbsp;<span className="text-purple-400">"languages"</span>: [<span className="text-green-400">"Python"</span>, <span className="text-green-400">"TypeScript"</span>, <span className="text-green-400">"C++"</span>],<br/>
-                    &nbsp;&nbsp;<span className="text-purple-400">"focus"</span>: [<span className="text-green-400">"LLMs"</span>, <span className="text-green-400">"Web Dev"</span>, <span className="text-green-400">"RAG"</span>]<br/>
+                    &nbsp;&nbsp;<span className="text-purple-400">"languages"</span>: [<span className="text-green-400">"Python"</span>, <span className="text-green-400">"Java"</span>, <span className="text-green-400">"C++"</span>],<br/>
+                    &nbsp;&nbsp;<span className="text-purple-400">"focus"</span>: [<span className="text-green-400">"LLMs"</span>, <span className="text-green-400">"Fine-tuning"</span>, <span className="text-green-400">"RAG"</span>]<br/>
                     <span className="text-yellow-400">{"}"}</span>
                   </div>
 
