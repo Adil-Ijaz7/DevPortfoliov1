@@ -169,6 +169,18 @@ export default function Home() {
       {/* Skills Section */}
       <SkillsLogos />
 
+      {/* About Section */}
+      <section id="about" className="section">
+        <div className="container max-w-4xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">About Me</h2>
+          <div className="glass-card p-8 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm">
+            <p className="text-gray-300 leading-relaxed text-lg whitespace-pre-line">
+              {personalData.bio}
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Experience Section */}
       <section id="experience" className="section">
         <div className="container max-w-4xl">
