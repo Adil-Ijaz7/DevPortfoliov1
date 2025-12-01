@@ -45,25 +45,39 @@ const skills = [
 
 export default function SkillsLogos() {
   return (
-    <section id="skills" className="section">
-      <div className="container">
-        <div className="text-center mb-12">
-          <h2 className="heading text-3xl md:text-4xl mb-4">Tech Stack</h2>
-          <p className="subheading max-w-[700px] mx-auto">
-            Technologies I use to build intelligent systems.
-          </p>
+    <section id="skills" className="py-24 overflow-hidden relative">
+      {/* Background Gradients for smooth fade */}
+      <div className="absolute left-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-r from-[var(--bg)] to-transparent z-10" />
+      <div className="absolute right-0 top-0 bottom-0 w-20 md:w-40 bg-gradient-to-l from-[var(--bg)] to-transparent z-10" />
+
+      <div className="container mb-12 text-center relative z-20">
+        <h2 className="heading text-3xl md:text-4xl mb-4 text-[var(--text)]">Tech Stack</h2>
+        <p className="subheading max-w-[700px] mx-auto text-gray-500">
+          Technologies I use to build intelligent systems.
+        </p>
+      </div>
+      
+      <div className="relative flex overflow-x-hidden group">
+        <div className="animate-marquee whitespace-nowrap flex gap-8 py-4">
+          {[...skills, ...skills].map(({ name, Icon }, index) => (
+            <div
+              key={index}
+              className="inline-flex flex-col items-center justify-center gap-3 px-8 py-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md hover:border-[var(--accent)]/50 transition-all duration-300 min-w-[140px] group/item"
+            >
+              <Icon className="text-5xl text-gray-400 group-hover/item:text-[var(--accent)] transition-colors duration-300" />
+              <span className="text-sm font-medium text-gray-500 group-hover/item:text-[var(--text)] transition-colors">{name}</span>
+            </div>
+          ))}
         </div>
         
-        <div className="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
-          {skills.map(({ name, Icon }) => (
-            <div key={name} className="group relative p-6 bg-white/5 rounded-2xl border border-white/5 hover:border-[var(--accent)] hover:bg-white/10 transition-all duration-300 cursor-default">
-              <Icon className="text-4xl text-gray-400 group-hover:text-[var(--accent)] transition-colors" />
-              
-              {/* Tooltip */}
-              <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-3 py-1.5 bg-[var(--accent)] text-white text-xs font-bold rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-[0_0_15px_var(--accent)]">
-                {name}
-                <span className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-[var(--accent)]"></span>
-              </span>
+        <div className="absolute top-0 animate-marquee2 whitespace-nowrap flex gap-8 py-4">
+          {[...skills, ...skills].map(({ name, Icon }, index) => (
+            <div
+              key={index}
+              className="inline-flex flex-col items-center justify-center gap-3 px-8 py-6 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md hover:border-[var(--accent)]/50 transition-all duration-300 min-w-[140px] group/item"
+            >
+              <Icon className="text-5xl text-gray-400 group-hover/item:text-[var(--accent)] transition-colors duration-300" />
+              <span className="text-sm font-medium text-gray-500 group-hover/item:text-[var(--text)] transition-colors">{name}</span>
             </div>
           ))}
         </div>

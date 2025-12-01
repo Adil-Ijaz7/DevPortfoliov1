@@ -137,6 +137,56 @@ export const personalData = {
       description: "Intelligent code suggestion and bug tracking extension for VS Code & IntelliJ.",
       link: "https://github.com/Adil-Ijaz7/ai-code-assistant",
       tech: ["AI", "VS Code Extension"],
+      image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1965&auto=format&fit=crop"
+    },
+    {
+      title: "Book Recommendation App",
+      description: "A modern Python desktop application for discovering, previewing, and saving favorite books. Features a clean dark-themed GUI, aggregates data from Open Library and Google Books APIs, and persists favorites in a local MySQL database.",
+      link: "https://github.com/Adil-Ijaz7/Book_recommendation_app",
+      tech: ["Python", "CustomTkinter", "MySQL", "API Integration"],
+      image: "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      title: "Sonara Music Player",
+      description: "A modern, responsive web-based Music Player with a sleek dark theme. Features drag & drop song support, auto-play, and dynamic audio controls.",
+      link: "https://github.com/Adil-Ijaz7/SonaraMusicPlayer",
+      tech: ["HTML5", "CSS3", "JavaScript"],
+      image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      title: "Voxa Assistant",
+      description: "A sleek, neon-themed AI voice assistant built with Python and PyQt6. Features animated waveform visualization, voice recognition, text-to-speech, and AI-powered responses via OpenRouter API.",
+      link: "https://github.com/Adil-Ijaz7/Voxa_Assistant",
+      tech: ["Python", "PyQt6", "OpenRouter API", "Voice AI"],
+      image: "https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      title: "DevPilot",
+      description: "A sophisticated AI-powered coding assistant built with Java Swing. Leverages OpenRouter API for real-time code analysis, debugging, refactoring, and test generation.",
+      link: "https://github.com/Adil-Ijaz7/DevPilot",
+      tech: ["Java Swing", "FlatLaf", "OpenRouter API", "AI"],
+      image: "https://images.unsplash.com/photo-1534972195531-d756b9bfa9f2?q=80&w=2070&auto=format&fit=crop"
+    },
+    {
+      title: "Beltran's Painting LLC",
+      description: "Professional business website developed for a painting service client.",
+      link: "https://beltranspaintingllc.com/",
+      tech: ["WordPress", "Web Design", "Client Project"],
+      image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=80&w=2131&auto=format&fit=crop"
+    },
+    {
+      title: "Casa da Cera",
+      description: "Custom website developed for a client.",
+      link: "https://casadacera.pt/",
+      tech: ["WordPress", "Web Design", "Client Project"],
+      image: "https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1974&auto=format&fit=crop"
+    },
+    {
+      title: "Perricone Home Services",
+      description: "Business website developed for a home services client.",
+      link: "https://perriconehomeservices.com/",
+      tech: ["WordPress", "Web Design", "Client Project"],
+      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2070&auto=format&fit=crop"
     },
   ],
 };

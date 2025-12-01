@@ -1,13 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #050505;
-  --surface: #0a0a0a;
-  --card: #121212;
-  --text: #ffffff;
-  --muted: #9ca3af;
-  --accent: #bf5af2;
-  --accent-hover: #a040d0;
+  --bg: #ffffff;
+  --surface: #f9fafb;
+  --card: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #ff5722; /* Vibrant Orange */
+  --accent-hover: #e64a19;
+  --secondary: #10b981; /* Green accent */
 }
 
 @theme {
@@ -25,15 +26,17 @@
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .card {
     background: var(--card);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.05);
     border-radius: 12px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   }
 
   .section {
@@ -49,7 +52,7 @@
   }
 
   .subheading {
-    @apply text-gray-400 font-medium;
+    @apply text-gray-500 font-medium;
   }
 }
 
@@ -68,4 +71,24 @@ html {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+  .animate-marquee2 {
+    animation: marquee2 40s linear infinite;
+  }
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+@keyframes marquee2 {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0%); }
+}
 
