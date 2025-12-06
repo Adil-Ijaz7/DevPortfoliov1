@@ -20,6 +20,9 @@ export const personalData = {
     "MongoDB",
     "PyTorch",
     "TensorFlow",
+    "Keras",
+    "Pandas",
+    "Scikit-learn",
     "LLMs",
     "Computer Vision",
     "Fine-tuning",
@@ -31,7 +34,9 @@ export const personalData = {
     "Node.js",
     "Docker",
     "AWS",
+    "Heroku",
     "Linux",
+    "RestAPI",
     "FastAPI",
     "LangChain",
     "Hugging Face"
@@ -133,13 +138,6 @@ export const personalData = {
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1965&auto=format&fit=crop"
     },
     {
-      title: "AI Code Assistant",
-      description: "Intelligent code suggestion and bug tracking extension for VS Code & IntelliJ.",
-      link: "https://github.com/Adil-Ijaz7/ai-code-assistant",
-      tech: ["AI", "VS Code Extension"],
-      image: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?q=80&w=1965&auto=format&fit=crop"
-    },
-    {
       title: "Book Recommendation App",
       description: "A modern Python desktop application for discovering, previewing, and saving favorite books. Features a clean dark-themed GUI, aggregates data from Open Library and Google Books APIs, and persists favorites in a local MySQL database.",
       link: "https://github.com/Adil-Ijaz7/Book_recommendation_app",
@@ -158,7 +156,7 @@ export const personalData = {
       description: "A sleek, neon-themed AI voice assistant built with Python and PyQt6. Features animated waveform visualization, voice recognition, text-to-speech, and AI-powered responses via OpenRouter API.",
       link: "https://github.com/Adil-Ijaz7/Voxa_Assistant",
       tech: ["Python", "PyQt6", "OpenRouter API", "Voice AI"],
-      image: "https://images.unsplash.com/photo-1516280440614-6697288d5d38?q=80&w=2070&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1589254065878-42c9da997008?q=80&w=2070&auto=format&fit=crop"
     },
     {
       title: "DevPilot",

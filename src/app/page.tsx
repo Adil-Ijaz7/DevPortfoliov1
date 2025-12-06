@@ -1,8 +1,8 @@
 "use client";
 
 import { personalData } from "./data";
-import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 import { Github, Linkedin, Mail, Instagram, ArrowRight, FileText, Folder, ExternalLink, Brain, Code2, Server } from "lucide-react";
 import SkillsLogos from "@/components/SkillsLogos";
 import Image from "next/image";
@@ -10,6 +10,18 @@ import Image from "next/image";
 export default function Home() {
   const [typedText, setTypedText] = useState("");
   const fullText = "Full-Stack Developer & Aspiring AI Engineer based in Pakistan.";
+  
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+  const y3 = useTransform(scrollY, [0, 500], [0, 100]);
+
+  const projectsRef = useRef(null);
+  const { scrollYProgress: projectsScroll } = useScroll({
+    target: projectsRef,
+    offset: ["start end", "end start"]
+  });
+  const yProjects = useTransform(projectsScroll, [0, 1], [50, -50]);
 
   useEffect(() => {
     let i = 0;
@@ -44,17 +56,17 @@ export default function Home() {
     <main className="min-h-screen bg-[var(--bg)] text-[var(--text)] selection:bg-[var(--accent)] selection:text-white">
       {/* Fixed Background Elements */}
       <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[var(--accent)]/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[var(--secondary)]/10 rounded-full blur-[120px]" />
+        <motion.div style={{ y: y1 }} className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-[var(--accent)]/10 rounded-full blur-[120px]" />
+        <motion.div style={{ y: y2 }} className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-[var(--secondary)]/10 rounded-full blur-[120px]" />
       </div>
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-black/5 bg-[var(--bg)]/80">
+      <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b border-white/5 bg-[var(--bg)]/80">
         <div className="container py-4 flex justify-between items-center">
-          <div className="text-xl font-bold tracking-tighter">
+          <div className="text-xl font-bold tracking-tighter text-white">
             AAL<span className="text-[var(--accent)]">.</span>
           </div>
-          <div className="flex gap-6 text-sm font-medium text-gray-500">
+          <div className="flex gap-6 text-sm font-medium text-gray-400">
             <a href="#about" className="hover:text-[var(--accent)] transition-colors">About</a>
             <a href="#experience" className="hover:text-[var(--accent)] transition-colors">Experience</a>
             <a href="#projects" className="hover:text-[var(--accent)] transition-colors">Projects</a>
@@ -73,7 +85,7 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-left z-10"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-sm text-[var(--accent)] mb-6">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--accent)]/10 border border-[var(--accent)]/20 text-sm text-[var(--accent)] mb-6 shadow-[0_0_10px_rgba(0,243,255,0.2)]">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[var(--accent)]"></span>
@@ -81,25 +93,25 @@ export default function Home() {
               Available for work
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tight text-[var(--text)]">
+            <h1 className="text-5xl md:text-7xl font-black mb-6 leading-[1.1] tracking-tight text-white">
               ADIL ALI <br />
-              <span className="text-[var(--accent)]">LAKHAIR</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent)] to-[var(--secondary)] drop-shadow-[0_0_10px_rgba(0,243,255,0.3)]">LAKHAIR</span>
             </h1>
-            <p className="text-gray-500 text-lg mb-8 max-w-lg leading-relaxed">
+            <p className="text-gray-400 text-lg mb-8 max-w-lg leading-relaxed">
               Full-Stack Developer & Aspiring AI Engineer crafting intelligent systems. 
-              <span className="block mt-2 text-[var(--text)]/60 italic">"Failure is the condiment that gives success."</span>
+              <span className="block mt-2 text-[var(--accent)]/80 italic font-mono">"Failure is the condiment that gives success."</span>
             </p>
             
             <div className="flex flex-wrap gap-4">
               <a 
                 href="#contact" 
-                className="px-8 py-3.5 bg-[var(--accent)] text-white font-bold rounded-full hover:bg-[var(--accent-hover)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1"
+                className="px-8 py-3.5 bg-[var(--accent)] text-black font-bold rounded-full hover:bg-[var(--accent-hover)] transition-all shadow-[0_0_20px_rgba(0,243,255,0.4)] hover:shadow-[0_0_30px_rgba(0,243,255,0.6)] hover:-translate-y-1"
               >
                 Contact Me
               </a>
               <a 
                 href="#projects" 
-                className="px-8 py-3.5 bg-white border border-gray-200 text-gray-700 rounded-full hover:bg-gray-50 transition-all hover:-translate-y-1 shadow-sm"
+                className="px-8 py-3.5 bg-white/5 border border-white/10 text-white rounded-full hover:bg-white/10 transition-all hover:-translate-y-1 shadow-sm hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
               >
                 View Work
               </a>
@@ -108,6 +120,7 @@ export default function Home() {
 
           {/* Right Content - Tech Visual */}
           <motion.div
+            style={{ y: y3 }}
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
@@ -211,13 +224,21 @@ export default function Home() {
       <SkillsLogos />
 
       {/* About Section */}
-      <section id="about" className="section">
-        <div className="container max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-[var(--text)]">About Me</h2>
-          <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm">
-            <p className="text-gray-600 leading-relaxed text-lg whitespace-pre-line">
+      <section id="about" className="section relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
+        <div className="container max-w-4xl relative z-10">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-[var(--accent)] to-[var(--secondary)]">
+            &lt;About Me /&gt;
+          </h2>
+          <div className="glass-card p-8 rounded-2xl relative overflow-hidden group">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[var(--accent)] to-transparent opacity-50"></div>
+            <p className="text-gray-300 leading-relaxed text-lg whitespace-pre-line font-mono">
+              <span className="text-[var(--accent)] opacity-50">01. </span>
               {personalData.bio}
             </p>
+            <div className="absolute bottom-2 right-4 text-[10px] text-[var(--accent)] opacity-40 font-mono">
+              SYSTEM_STATUS: ONLINE
+            </div>
           </div>
         </div>
       </section>
@@ -238,9 +259,9 @@ export default function Home() {
       {/* Education Section */}
       <section id="education" className="section">
         <div className="container max-w-4xl">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[var(--text)]">Education</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-white">Education</h2>
           
-          <div className="relative border-l border-gray-200 ml-4 md:ml-6 space-y-12">
+          <div className="relative border-l border-white/10 ml-4 md:ml-6 space-y-12">
             {personalData.education.map((edu, i) => (
               <motion.div 
                 key={i}
@@ -251,19 +272,19 @@ export default function Home() {
                 className="relative pl-8 md:pl-12"
               >
                 {/* Timeline Dot */}
-                <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-[var(--accent)] ring-4 ring-white" />
+                <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-[var(--accent)] ring-4 ring-[var(--bg)] shadow-[0_0_10px_var(--accent)]" />
                 
-                <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
+                <div className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 shadow-sm hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] hover:border-[var(--accent)]/30 transition-all">
                   <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
                     <div>
-                      <h3 className="text-xl font-bold text-[var(--text)]">{edu.degree}</h3>
+                      <h3 className="text-xl font-bold text-white">{edu.degree}</h3>
                       <p className="text-[var(--accent)] font-medium">{edu.institution}</p>
                     </div>
-                    <span className="text-sm font-mono text-gray-500 bg-gray-100 px-3 py-1 rounded-full w-fit">
+                    <span className="text-sm font-mono text-gray-400 bg-white/5 border border-white/10 px-3 py-1 rounded-full w-fit">
                       {edu.period}
                     </span>
                   </div>
-                  <p className="text-gray-600 leading-relaxed text-sm md:text-base">
+                  <p className="text-gray-400 leading-relaxed text-sm md:text-base">
                     {edu.description}
                   </p>
                 </div>
@@ -274,9 +295,10 @@ export default function Home() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-32 relative">
+      <section id="projects" className="py-32 relative" ref={projectsRef}>
         <div className="container">
           <motion.div
+            style={{ y: yProjects }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -298,10 +320,10 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                className="group relative bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 shadow-sm hover:shadow-[0_0_20px_rgba(0,243,255,0.15)] hover:border-[var(--accent)]/50 transition-all duration-300 hover:-translate-y-1"
               >
                 {/* Image Container */}
-                <div className="relative h-48 w-full overflow-hidden bg-gray-100">
+                <div className="relative h-48 w-full overflow-hidden bg-white/5">
                   {project.image ? (
                     <Image
                       src={project.image}
@@ -310,17 +332,17 @@ export default function Home() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                   ) : (
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-300">
+                    <div className="absolute inset-0 flex items-center justify-center text-gray-600">
                       <Folder size={48} />
                     </div>
                   )}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">
+                    <h3 className="text-xl font-bold text-white group-hover:text-[var(--accent)] transition-colors">
                       {project.title}
                     </h3>
                     <div className="flex gap-3">
@@ -329,7 +351,7 @@ export default function Home() {
                           href={project.link}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-gray-400 hover:text-[var(--text)] transition-colors"
+                          className="text-gray-400 hover:text-[var(--accent)] transition-colors"
                         >
                           <ExternalLink size={18} />
                         </a>
@@ -337,7 +359,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <p className="text-gray-500 text-sm mb-6 line-clamp-3">
+                  <p className="text-gray-400 text-sm mb-6 line-clamp-3">
                     {project.description}
                   </p>
 
@@ -345,13 +367,13 @@ export default function Home() {
                     {project.tech.slice(0, 3).map((tech, i) => (
                       <span 
                         key={i} 
-                        className="px-2.5 py-1 text-xs font-medium bg-gray-50 text-gray-600 rounded-md border border-gray-100"
+                        className="px-2.5 py-1 text-xs font-medium bg-white/5 text-gray-300 rounded-md border border-white/10"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.tech.length > 3 && (
-                      <span className="px-2.5 py-1 text-xs font-medium bg-gray-50 text-gray-400 rounded-md border border-gray-100">
+                      <span className="px-2.5 py-1 text-xs font-medium bg-white/5 text-gray-400 rounded-md border border-white/10">
                         +{project.tech.length - 3}
                       </span>
                     )}
@@ -463,7 +485,7 @@ function SocialLink({ href, icon }: { href: string; icon: React.ReactNode }) {
     <a
       href={href}
       target="_blank"
-      className="p-3 rounded-full bg-white text-gray-400 hover:text-white hover:bg-[var(--accent)] border border-gray-200 hover:border-[var(--accent)] transition-all duration-300 shadow-sm"
+      className="p-3 rounded-full bg-white/5 text-gray-400 hover:text-white hover:bg-[var(--accent)] border border-white/10 hover:border-[var(--accent)] transition-all duration-300 shadow-sm hover:shadow-[0_0_15px_var(--accent)]"
     >
       {icon}
     </a>
@@ -474,13 +496,13 @@ function HeroCard({ title, desc, icon }: { title: string; desc: string; icon: Re
   return (
     <motion.div 
       whileHover={{ y: -5, scale: 1.02 }}
-      className="p-6 rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md transition-all duration-300 group cursor-default"
+      className="p-6 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-sm hover:shadow-[0_0_15px_rgba(0,243,255,0.2)] hover:border-[var(--accent)]/50 transition-all duration-300 group cursor-default"
     >
-      <div className="mb-4 p-3 bg-gray-50 rounded-xl w-fit group-hover:scale-110 transition-transform duration-300">
+      <div className="mb-4 p-3 bg-white/5 rounded-xl w-fit group-hover:scale-110 transition-transform duration-300 border border-white/5">
         {icon}
       </div>
-      <h3 className="text-xl font-bold mb-2 text-[var(--text)] group-hover:text-[var(--accent)] transition-colors">{title}</h3>
-      <p className="text-sm text-gray-500 leading-relaxed">
+      <h3 className="text-xl font-bold mb-2 text-white group-hover:text-[var(--accent)] transition-colors">{title}</h3>
+      <p className="text-sm text-gray-400 leading-relaxed">
         {desc}
       </p>
     </motion.div>
@@ -499,23 +521,23 @@ function ExperienceCard({ exp, index }: { exp: any, index: number }) {
       className="relative pl-8 md:pl-12"
     >
       {/* Timeline Dot */}
-      <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-[var(--accent)] ring-4 ring-white" />
+      <div className="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-[var(--accent)] ring-4 ring-[var(--bg)] shadow-[0_0_10px_var(--accent)]" />
       
       <motion.div 
         whileHover={{ x: 10 }}
-        className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all cursor-default"
+        className="bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10 shadow-sm hover:shadow-[0_0_15px_rgba(0,243,255,0.1)] hover:border-[var(--accent)]/30 transition-all cursor-default"
       >
         <div className="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
           <div>
-            <h3 className="text-xl font-bold text-[var(--text)]">{exp.role}</h3>
+            <h3 className="text-xl font-bold text-white">{exp.role}</h3>
             <p className="text-[var(--accent)] font-medium">{exp.company}</p>
           </div>
-          <span className="text-sm font-mono text-gray-500 bg-gray-100 px-3 py-1 rounded-full w-fit">
+          <span className="text-sm font-mono text-gray-400 bg-white/5 border border-white/10 px-3 py-1 rounded-full w-fit">
             {exp.period}
           </span>
         </div>
         
-        <ul className="list-disc list-inside text-gray-600 leading-relaxed text-sm md:text-base space-y-2">
+        <ul className="list-disc list-inside text-gray-400 leading-relaxed text-sm md:text-base space-y-2">
             {(isExpanded ? exp.description : exp.description.slice(0, 2)).map((item: string, i: number) => (
                 <li key={i}>{item}</li>
             ))}

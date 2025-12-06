@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import SmoothScroll from "@/components/SmoothScroll";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Adil Ali Lakhair | AI Researcher & Engineer",
-  description: "Portfolio of Adil Ali Lakhair, an Aspiring AI Researcher and Engineer.",
+  title: "Adil Ali Lakhair | Full Stack Developer & AI Engineer Portfolio",
+  description: "Portfolio of Adil Ali Lakhair, a Full-Stack Developer and Aspiring AI Engineer.",
 };
 
 export default function RootLayout({
@@ -28,7 +29,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         suppressHydrationWarning
       >
-        {children}
+        <SmoothScroll>{children}</SmoothScroll>
       </body>
     </html>
   );
